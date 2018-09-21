@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<xs:schema id="ReleaseMappingDataSet" 
+                  targetNamespace="http://http://www.inflectra.com/SpiraTeam/AddOns/JamaContourAdapter/ReleaseMappingDataSet.xsd"
+                  elementFormDefault="qualified"
+                  attributeFormDefault="qualified"
+                  xmlns="http://http://www.inflectra.com/SpiraTeam/AddOns/JamaContourAdapter/ReleaseMappingDataSet.xsd"
+                  xmlns:mstns="http://http://www.inflectra.com/SpiraTeam/AddOns/JamaContourAdapter/ReleaseMappingDataSet.xsd"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
+                  xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+    <xs:element name="ReleaseMappingData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true">
+        <xs:complexType>
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+              <xs:element name="ReleaseMapping" msprop:Generator_TableClassName="ReleaseMappingDataTable" msprop:Generator_TableVarName="tableReleaseMapping" msprop:Generator_TablePropName="ReleaseMapping" msprop:Generator_RowDeletingName="ReleaseMappingRowDeleting" msprop:Generator_UserTableName="ReleaseMapping" msprop:Generator_RowChangingName="ReleaseMappingRowChanging" msprop:Generator_RowEvHandlerName="ReleaseMappingRowChangeEventHandler" msprop:Generator_RowDeletedName="ReleaseMappingRowDeleted" msprop:Generator_RowEvArgName="ReleaseMappingRowChangeEvent" msprop:Generator_RowChangedName="ReleaseMappingRowChanged" msprop:Generator_RowClassName="ReleaseMappingRow">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="SpiraProjectId" msprop:Generator_ColumnVarNameInTable="columnSpiraProjectId" msprop:Generator_ColumnPropNameInRow="SpiraProjectId" msprop:Generator_ColumnPropNameInTable="SpiraProjectIdColumn" msprop:Generator_UserColumnName="SpiraProjectId" type="xs:int" minOccurs="1" />
+                    <xs:element name="SpiraReleaseId" msprop:Generator_ColumnVarNameInTable="columnSpiraReleaseId" msprop:Generator_ColumnPropNameInRow="SpiraReleaseId" msprop:Generator_ColumnPropNameInTable="SpiraReleaseIdColumn" msprop:Generator_UserColumnName="SpiraReleaseId" type="xs:int" minOccurs="1" />
+                    <xs:element name="JamaProjectId" msprop:Generator_ColumnVarNameInTable="columnJamaProjectId" msprop:Generator_ColumnPropNameInRow="JamaProjectId" msprop:Generator_ColumnPropNameInTable="JamaProjectIdColumn" msprop:Generator_UserColumnName="JamaProjectId" type="xs:int"  minOccurs="1" />
+                    <xs:element name="JamaReleaseId" msprop:Generator_ColumnVarNameInTable="columnJamaReleaseId" msprop:Generator_ColumnPropNameInRow="JamaReleaseId" msprop:Generator_ColumnPropNameInTable="JamaReleaseIdColumn" msprop:Generator_UserColumnName="JamaReleaseId" type="xs:int" minOccurs="1" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:choice>
+        </xs:complexType>
+      <xs:unique name="pkReleaseMapping" msdata:PrimaryKey="true">
+        <xs:selector xpath=".//mstns:ReleaseMapping" />
+        <xs:field xpath="mstns:JamaProjectId" />
+        <xs:field xpath="mstns:JamaReleaseId" />
+      </xs:unique>
+    </xs:element>
+</xs:schema>

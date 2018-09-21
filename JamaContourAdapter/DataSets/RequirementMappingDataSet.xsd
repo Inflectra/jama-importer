@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="RequirementMappingData" targetNamespace="http://www.inflectra.com/SpiraTeam/AddOns/JamaContourAdapter/RequirementMappingDataSet.xsd" xmlns:mstns="http://www.inflectra.com/SpiraTeam/AddOns/JamaContourAdapter/RequirementMappingDataSet.xsd" xmlns="http://www.inflectra.com/SpiraTeam/AddOns/JamaContourAdapter/RequirementMappingDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="RequirementMappingData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="RequirementMappingData" msprop:Generator_UserDSName="RequirementMappingData">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="RequirementMapping" msprop:Generator_TableClassName="RequirementMappingDataTable" msprop:Generator_TableVarName="tableRequirementMapping" msprop:Generator_TablePropName="RequirementMapping" msprop:Generator_RowDeletingName="RequirementMappingRowDeleting" msprop:Generator_UserTableName="RequirementMapping" msprop:Generator_RowChangingName="RequirementMappingRowChanging" msprop:Generator_RowEvHandlerName="RequirementMappingRowChangeEventHandler" msprop:Generator_RowDeletedName="RequirementMappingRowDeleted" msprop:Generator_RowEvArgName="RequirementMappingRowChangeEvent" msprop:Generator_RowChangedName="RequirementMappingRowChanged" msprop:Generator_RowClassName="RequirementMappingRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SpiraProjectId" msprop:Generator_ColumnVarNameInTable="columnSpiraProjectId" msprop:Generator_ColumnPropNameInRow="SpiraProjectId" msprop:Generator_ColumnPropNameInTable="SpiraProjectIdColumn" msprop:Generator_UserColumnName="SpiraProjectId" type="xs:int" minOccurs="1" />
+              <xs:element name="SpiraRequirementId" msprop:Generator_ColumnVarNameInTable="columnSpiraRequirementId" msprop:Generator_ColumnPropNameInRow="SpiraRequirementId" msprop:Generator_ColumnPropNameInTable="SpiraRequirementIdColumn" msprop:Generator_UserColumnName="SpiraRequirementId" type="xs:int" minOccurs="1" />
+              <xs:element name="JamaProjectId" msprop:Generator_ColumnVarNameInTable="columnJamaProjectId" msprop:Generator_ColumnPropNameInRow="JamaProjectId" msprop:Generator_ColumnPropNameInTable="JamaProjectIdColumn" msprop:Generator_UserColumnName="JamaProjectId" type="xs:int"  minOccurs="1" />
+              <xs:element name="JamaItemId" msprop:Generator_ColumnVarNameInTable="columnJamaItemId" msprop:Generator_ColumnPropNameInRow="JamaItemId" msprop:Generator_ColumnPropNameInTable="JamaItemIdColumn" msprop:Generator_UserColumnName="JamaItemId" type="xs:int" minOccurs="1" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="pkRequirementMapping" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:RequirementMapping" />
+      <xs:field xpath="mstns:JamaProjectId" />
+      <xs:field xpath="mstns:JamaItemId" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

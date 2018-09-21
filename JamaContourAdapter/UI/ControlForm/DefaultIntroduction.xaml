@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="Inflectra.SpiraTest.AddOns.JamaContourAdapter.ControlForm.DefaultIntroduction"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label FontSize="20" FontWeight="Bold">Introduction</Label>
+        <TextBlock Grid.Row="1" TextWrapping="Wrap" Margin="5">
+            This is the default introduction for the ProcedureDialog; 
+            it's not very interesting as you can see. 
+            More useful versions of this may include extra things such as don't show this page in future.
+            This page should indicate the purpose of the procedure.
+        </TextBlock>
+    </Grid>
+</UserControl>

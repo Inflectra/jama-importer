@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="Inflectra.SpiraTest.AddOns.JamaContourAdapter.ControlForm.DefaultResults"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid>
+           <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label FontSize="20" FontWeight="Bold">Results</Label>
+        <TextBlock Grid.Row="1" TextWrapping="Wrap" Margin="5">
+            This is the default results for the ProcedureDialog; 
+            it's not very interesting as you can see. 
+            More useful versions of this would indicate some results of the procedure, and may also include log files and the ability to save aforementioned log files.
+        </TextBlock> 
+    </Grid>
+</UserControl>

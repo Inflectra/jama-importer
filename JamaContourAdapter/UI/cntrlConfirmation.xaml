@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="Inflectra.SpiraTest.AddOns.JamaContourAdapter.UI.cntrlConfirmation"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="480" d:DesignWidth="480"
+			 Padding="7"
+			 Background="Transparent"
+			 >
+	<DockPanel LastChildFill="True">
+		<TextBlock DockPanel.Dock="Top" TextWrapping="Wrap">Verify your import settings below. Clicking 'Finish' will begin the import, if you need to make changes, click the 'Back' button or navigate to the pane on the left.</TextBlock>
+		<TextBlock DockPanel.Dock="Bottom" HorizontalAlignment="Right">Click 'Import' to start the import...</TextBlock>
+		<TextBox Name="txbSummary" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" VerticalAlignment="Stretch" Margin="0,5,0,5" IsReadOnly="True" FontFamily="Lucida Console, Lucida Sans Typewriter, Courier New" />
+	</DockPanel>
+</UserControl>

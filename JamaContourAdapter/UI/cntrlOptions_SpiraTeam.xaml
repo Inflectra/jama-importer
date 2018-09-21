@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="Inflectra.SpiraTest.AddOns.JamaContourAdapter.UI.cntrlOptions_SpiraTeam"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+			 xmlns:local="clr-namespace:Inflectra.SpiraTest.AddOns.JamaContourAdapter"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="400"
+			 Padding="7"
+			 Background="Transparent"
+			 >
+	<UserControl.Resources>
+		<LinearGradientBrush x:Key="ErrorControlBackground" StartPoint=".5,0" EndPoint=".5,1">
+			<GradientStop Color="LightPink" Offset=".35" />
+			<GradientStop Color="IndianRed" Offset="1.5" />
+		</LinearGradientBrush>
+		<Style x:Key="ErrorHighlight">
+			<Style.Triggers>
+				<Trigger Property="Control.Tag" Value="1">
+					<Setter Property="Control.Background" Value="{StaticResource ErrorControlBackground}" />
+				</Trigger>
+			</Style.Triggers>
+		</Style>
+	</UserControl.Resources>
+
+	<DockPanel LastChildFill="True">
+		<TextBlock Name="msgStatus" DockPanel.Dock="Bottom" HorizontalAlignment="Right">Click 'Next' to continue...</TextBlock>
+		<StackPanel Orientation="Vertical">
+			<TextBlock TextWrapping="Wrap">
+			Enter in your SpiraTeam installation information, then click the 'Get Projects' button to retrieve available projects to import into.
+			</TextBlock>
+			<GroupBox>
+				<GroupBox.Header>
+					<Label FontWeight="Bold" Height="Auto" VerticalAlignment="Center">Server Information:</Label>
+				</GroupBox.Header>
+				<GroupBox.Content>
+					<StackPanel Orientation="Vertical">
+						<Grid Name="grdEntry">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="Auto"/>
+								<ColumnDefinition Width="*" />
+							</Grid.ColumnDefinitions>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+							<Label Grid.Column="0" Grid.Row="0" HorizontalContentAlignment="Right">Server URL:</Label>
+							<TextBox Margin="2" Name="txbServer" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="0"  VerticalAlignment="Center" Style="{StaticResource ResourceKey=ErrorHighlight}" PreviewKeyDown="txbEntry_PreviewKeyDown" />
+							<Label Grid.Column="0" Grid.Row="1" HorizontalContentAlignment="Right">User ID:</Label>
+							<TextBox Margin="2" Name="txbUserID" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Style="{StaticResource ResourceKey=ErrorHighlight}" PreviewKeyDown="txbEntry_PreviewKeyDown" />
+							<Label Grid.Column="0" Grid.Row="2" HorizontalContentAlignment="Right">Password:</Label>
+							<PasswordBox Margin="2" Name="txbUserPass" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Style="{StaticResource ResourceKey=ErrorHighlight}" Height="{Binding ElementName=txbUserID,Path=ActualHeight}" PreviewKeyDown="txbEntry_PreviewKeyDown" />
+                            <CheckBox Margin="2" Name="chkRememberPassword" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left" Content="Remember Password" />
+                            <Button Grid.Column="1" Grid.Row="3" Name="btnConnect" Click="btnConnect_Click" Width="100px" HorizontalAlignment="Right" Height="Auto">_Get Projects</Button>
+                        </Grid>
+						<ProgressBar Name="barProg" IsIndeterminate="True" Height="7" Opacity="1" Maximum="1" Margin="1" IsTabStop="False" IsEnabled="True" Visibility="Hidden" />
+					</StackPanel>
+				</GroupBox.Content>
+			</GroupBox>
+			<GroupBox IsEnabled="False" Name="grdAvailProjs">
+				<GroupBox.Header>
+					<Label FontWeight="Bold" Height="Auto" VerticalAlignment="Center">Project &amp; Requirement:</Label>
+				</GroupBox.Header>
+				<GroupBox.Content>
+					<StackPanel Orientation="Vertical">
+						<ComboBox HorizontalAlignment="Stretch" Name="cmbProjectList" SelectionChanged="cmbProjectList_SelectionChanged" />
+						<StackPanel Orientation="Horizontal" Margin="0,2,0,2">
+							<StackPanel.ToolTip>
+								<TextBlock TextWrapping="Wrap">Enter in the number of the requirement if you want to import the requirement structure into a folder in SpiraTeam.</TextBlock>
+							</StackPanel.ToolTip>
+							<TextBlock VerticalAlignment="Center" IsEnabledChanged="TextBlock_IsEnabledChanged">Root Requirement:</TextBlock>
+							<TextBox Name="txbRootReq" MaxLength="6" MinWidth="100" VerticalAlignment="Center" Margin="3,0,3,0" PreviewKeyDown="spira_ReqID_PreviewKeyDown" PreviewTextInput="spira_ReqID_PreviewTextInput" />
+							<TextBlock VerticalAlignment="Center" IsEnabledChanged="TextBlock_IsEnabledChanged">(Leave blank if unsure.)</TextBlock>
+						</StackPanel>
+					</StackPanel>
+				</GroupBox.Content>
+			</GroupBox>
+		</StackPanel>
+	</DockPanel>
+</UserControl>

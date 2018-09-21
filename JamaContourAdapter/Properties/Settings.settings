@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Inflectra.SpiraTest.AddOns.JamaContourAdapter.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DebugEnabled" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="SpiraUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://localhost/Spira</Value>
+    </Setting>
+    <Setting Name="SpiraLogin" Type="System.String" Scope="User">
+      <Value Profile="(Default)">administrator</Value>
+    </Setting>
+    <Setting Name="SpiraPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">PleaseChange</Value>
+    </Setting>
+    <Setting Name="JamaUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://mycompany.jamacloud.com</Value>
+    </Setting>
+    <Setting Name="JamaLogin" Type="System.String" Scope="User">
+      <Value Profile="(Default)">fredbloggs@mycompany.com</Value>
+    </Setting>
+    <Setting Name="JamaPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>
