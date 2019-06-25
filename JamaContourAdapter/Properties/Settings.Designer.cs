@@ -103,5 +103,17 @@ namespace Inflectra.SpiraTest.AddOns.JamaContourAdapter.Properties {
                 this["JamaPassword"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DeleteItemInSpiraIfMissing {
+            get {
+                return ((bool)(this["DeleteItemInSpiraIfMissing"]));
+            }
+            set {
+                this["DeleteItemInSpiraIfMissing"] = value;
+            }
+        }
     }
 }

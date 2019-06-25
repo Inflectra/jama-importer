@@ -53,6 +53,7 @@ namespace Inflectra.SpiraTest.AddOns.JamaContourAdapter.UI
                 this.chkRememberPassword.IsChecked = true;
                 this.txbUserPass.Password = Properties.Settings.Default.SpiraPassword;
             }
+            this.chkDeleteItemsInSpira.IsChecked = Properties.Settings.Default.DeleteItemInSpiraIfMissing;
         }
 
 		#region IProcedureComponent Members
@@ -324,8 +325,19 @@ namespace Inflectra.SpiraTest.AddOns.JamaContourAdapter.UI
 			get
 			{
 				bool iniCheck = CheckEntryFields();
-				if (this.cmbProjectList.SelectedItem == null)
-					iniCheck = false;
+                if (this.cmbProjectList.SelectedItem == null)
+                {
+                    iniCheck = false;
+                }
+                else
+                {
+                    //Save the setting for deleting items
+                    if (this.chkDeleteItemsInSpira.IsChecked.HasValue)
+                    {
+                        Properties.Settings.Default.DeleteItemInSpiraIfMissing = this.chkDeleteItemsInSpira.IsChecked.Value;
+                        Properties.Settings.Default.Save();
+                    }
+                }
 
 				return iniCheck;
 			}

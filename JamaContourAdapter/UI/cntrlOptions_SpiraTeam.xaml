@@ -73,8 +73,9 @@
 							<TextBlock VerticalAlignment="Center" IsEnabledChanged="TextBlock_IsEnabledChanged">Root Requirement:</TextBlock>
 							<TextBox Name="txbRootReq" MaxLength="6" MinWidth="100" VerticalAlignment="Center" Margin="3,0,3,0" PreviewKeyDown="spira_ReqID_PreviewKeyDown" PreviewTextInput="spira_ReqID_PreviewTextInput" />
 							<TextBlock VerticalAlignment="Center" IsEnabledChanged="TextBlock_IsEnabledChanged">(Leave blank if unsure.)</TextBlock>
-						</StackPanel>
-					</StackPanel>
+                        </StackPanel>
+                        <CheckBox Margin="5" Name="chkDeleteItemsInSpira" VerticalAlignment="Center" HorizontalAlignment="Center" Content="Delete Items in Spira if not found in Jama" />
+                    </StackPanel>
 				</GroupBox.Content>
 			</GroupBox>
 		</StackPanel>

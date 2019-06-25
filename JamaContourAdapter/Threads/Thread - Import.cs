@@ -115,39 +115,43 @@ namespace Inflectra.SpiraTest.AddOns.JamaContourAdapter
                     }
                     while (jamaItems != null && jamaItems.Count > 0 && !ProcessThread.WantCancel);
 
-                    //See if we have at least v3.1 of SpiraTest, since only that supports deletes
-                    RemoteVersion remoteVersion = this._spiraClient.System_GetProductVersion();
-                    if (remoteVersion != null)
+                    //See if we want to delete items in Spira that are not in Jama
+                    if (Properties.Settings.Default.DeleteItemInSpiraIfMissing)
                     {
-                        string versionNumber = remoteVersion.Version;
-                        string[] versionComponents = versionNumber.Split('.');
-                        int majorVersion = 0;
-                        if (!Int32.TryParse(versionComponents[0], out majorVersion))
+                        //See if we have at least v3.1 of SpiraTest, since only that supports deletes
+                        RemoteVersion remoteVersion = this._spiraClient.System_GetProductVersion();
+                        if (remoteVersion != null)
                         {
-                            majorVersion = 0;
-                        }
-                        int minorVersion = 0;
-                        if (versionComponents.Length > 1)
-                        {
-                            if (!Int32.TryParse(versionComponents[1], out minorVersion))
+                            string versionNumber = remoteVersion.Version;
+                            string[] versionComponents = versionNumber.Split('.');
+                            int majorVersion = 0;
+                            if (!Int32.TryParse(versionComponents[0], out majorVersion))
                             {
-                                minorVersion = 0;
+                                majorVersion = 0;
                             }
-                        }
-
-                        //We need at least v3.1
-                        if (majorVersion > 3 || (majorVersion == 3 && minorVersion >= 1))
-                        {
-                            //Now see if we have any mapped requirements that are no longer in Jama
-                            if (this._requirementDataMapping.Rows != null)
+                            int minorVersion = 0;
+                            if (versionComponents.Length > 1)
                             {
-                                for (int i = 0; i < this._requirementDataMapping.Rows.Count; i++)
+                                if (!Int32.TryParse(versionComponents[1], out minorVersion))
                                 {
-                                    RequirementMappingData.RequirementMappingRow mappingRow = this._requirementDataMapping.Rows[i];
-                                    //See that entry exists in the list of items, if not, delete from Spira and mappings
-                                    if (!jamaEntries.Any(je => je.ItemId == mappingRow.JamaItemId && je.ProjectId == mappingRow.JamaProjectId))
+                                    minorVersion = 0;
+                                }
+                            }
+
+                            //We need at least v3.1
+                            if (majorVersion > 3 || (majorVersion == 3 && minorVersion >= 1))
+                            {
+                                //Now see if we have any mapped requirements that are no longer in Jama
+                                if (this._requirementDataMapping.Rows != null)
+                                {
+                                    for (int i = 0; i < this._requirementDataMapping.Rows.Count; i++)
                                     {
-                                        DeleteSpiraRequirement(streamWriter, mappingRow);
+                                        RequirementMappingData.RequirementMappingRow mappingRow = this._requirementDataMapping.Rows[i];
+                                        //See that entry exists in the list of items, if not, delete from Spira and mappings
+                                        if (!jamaEntries.Any(je => je.ItemId == mappingRow.JamaItemId && je.ProjectId == mappingRow.JamaProjectId))
+                                        {
+                                            DeleteSpiraRequirement(streamWriter, mappingRow);
+                                        }
                                     }
                                 }
                             }
